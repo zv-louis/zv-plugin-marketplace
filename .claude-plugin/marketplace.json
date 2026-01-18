@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "zv-plugin-marketplace",
+  "version": "1.0.0",
+  "description": "Claude Code Plugin Marketplace - A collection of useful plugins and skills",
+  "owner": {
+    "name": "kanok-one",
+    "email": "zervoid77@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "sync-agent-config",
+      "source": {
+        "source": "github",
+        "repo": "zv-louis/sync-agent-config"
+      },
+      "description": "Skills for synchronizing agent settings across multiple Agent Tools.",
+      "category": "productivity"
+    }
+  ]
+}
