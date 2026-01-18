@@ -1,0 +1,13 @@
+{
+  "name": "jp-cover-letter-creator",
+  "description": "Interactive Japanese business cover letter creator with markdown preview and Word document (docx) export.",
+  "version": "0.1.1",
+  "author": {
+    "name": "kanok-one",
+    "email": "zervoid77@gmail.com"
+  },
+  "license": "MIT",
+  "skills": [
+    "skills/creating-jp-cover-letter"
+  ]
+}

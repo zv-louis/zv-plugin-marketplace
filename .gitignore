@@ -1,0 +1,4 @@
+# ignore local settings file
+.claude/settings.local.json
+
+
