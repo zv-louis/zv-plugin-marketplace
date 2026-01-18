@@ -1,0 +1,27 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "zv-plugins",
+  "version": "1.0.1",
+  "description": "Claude Code Plugin Marketplace - A collection of useful plugins and skills",
+  "owner": {
+    "name": "kanok-one",
+    "email": "zervoid77@gmail.com"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "sync-agent-config",
+      "source": "./plugins/sync-agent-config",
+      "description": "Synchronize Agent configurations (MCP servers, skills) across different Agent tools like Claude Code, VSCode, Claude Desktop, Codex, and Gemini CLI.",
+      "category": "productivity"
+    },
+    {
+      "name": "jp-cover-letter-creator",
+      "source": "./plugins/jp-cover-letter-creator",
+      "description": "Interactive Japanese business cover letter creator with markdown preview and Word document (docx) export.",
+      "category": "productivity"
+    }
+  ]
+}

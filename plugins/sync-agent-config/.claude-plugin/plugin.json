@@ -1,0 +1,23 @@
+{
+  "name": "sync-agent-config",
+  "version": "0.6.0",
+  "description": "Synchronize Agent configurations (MCP servers, skills) across different Agent tools like Claude Code, VSCode, Claude Desktop, Codex, and Gemini CLI.",
+  "author": {
+    "name": "kanok-one",
+    "email": "zervoid77@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "skills",
+    "sync",
+    "configuration",
+    "claude-code",
+    "codex",
+    "vscode",
+    "cursor",
+    "gemini-cli",
+    "antigravity"
+  ],
+  "skills": "./skills/"
+}
