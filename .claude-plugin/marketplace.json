@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "zv-plugin-marketplace",
+  "name": "zv-plugins",
   "version": "1.0.0",
   "description": "Claude Code Plugin Marketplace - A collection of useful plugins and skills",
   "owner": {
@@ -15,6 +15,15 @@
         "repo": "zv-louis/sync-agent-config"
       },
       "description": "Skills for synchronizing agent settings across multiple Agent Tools.",
+      "category": "productivity"
+    },
+    {
+      "name": "jp-cover-letter-creator",
+      "source": {
+        "source": "github",
+        "repo": "zv-louis/jp-cover-letter-creator"
+      },
+      "description": "Interactive Japanese business cover letter creator with markdown preview and Word document (docx) export.",
       "category": "productivity"
     }
   ]

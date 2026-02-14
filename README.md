@@ -43,13 +43,15 @@ Select and install plugins from the marketplace.
 Example of installing the zv-louis/sync-agent-config plugin
 
 ```bash
-/plugin install sync-agent-config@zv-plugin-marketplace
+/plugin install sync-agent-config@zv-plugins
 ```
 
 ## Plugins
 
 - [sync-agent-config](https://github.com/zv-louis/sync-agent-config)
-  A skill set for synchronizing Agent Skill/MCP settings across multiple agent tools.
+  Skills for synchronizing agent settings across multiple Agent Tools.
+- [jp-cover-letter-creator](https://github.com/zv-louis/jp-cover-letter-creator)
+  Interactive Japanese business cover letter creator with markdown preview and Word document (docx) export.
 
 ## License
 

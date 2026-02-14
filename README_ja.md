@@ -43,13 +43,15 @@ Claude Code のコンソールで以下のコマンドを実行します.
 zv-louis/sync-agent-config プラグインをインストールする例  
 
 ```bash
-/plugin install sync-agent-config@zv-plugin-marketplace
+/plugin install sync-agent-config@zv-plugins
 ```
 
 ## Plugins
 
-- [sync-agent-config](https://github.com/zv-louis/sync-agent-config)  
-  複数のエージェントツール間でAgentのSkill/MCP設定を同期するためのスキルセット.
+- [sync-agent-config](https://github.com/zv-louis/sync-agent-config)
+  複数のエージェントツール間でAgentの設定を同期するためのスキルセット.
+- [jp-cover-letter-creator](https://github.com/zv-louis/jp-cover-letter-creator)
+  マークダウンプレビューとWord文書(docx)エクスポート機能を備えた、日本語ビジネス送付状の対話型作成ツール.
 
 ## ライセンス
 
