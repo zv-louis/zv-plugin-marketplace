@@ -31,6 +31,8 @@
 
 ```txt
 .
+├── .claude-plugin/
+│   └── plugin.json              # プラグインマニフェスト
 ├── skills/
 │   └── creating-jp-cover-letter/
 │       ├── SKILL.md             # スキル定義
@@ -51,12 +53,15 @@
 
 ## インストール
 
+マーケットプレイスからjp-cover-letter-creatorをインストールします.
+
 ```bash
-/plugin marketplace add zv-louis/zv-plugin-marketplace
+# プラグインのインストール
 /plugin install jp-cover-letter-creator@zv-plugins
 ```
 
-依存スキルのインストール:
+依存スキルをインストールします.  
+anthropic公式のマーケットプレイスから document-skills をインストールしてください.  
 
 ```bash
 /plugin marketplace add anthropics/skills
@@ -85,4 +90,4 @@ Claude Code で以下のように呼び出します:
 
 ## ライセンス
 
-Private
+MIT

@@ -8,6 +8,6 @@
   },
   "license": "MIT",
   "skills": [
-    "skills/creating-jp-cover-letter"
+    "./skills/creating-jp-cover-letter"
   ]
 }

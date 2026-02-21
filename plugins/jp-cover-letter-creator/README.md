@@ -31,6 +31,8 @@ This plugin guides users through an interactive dialogue to gather the necessary
 
 ```txt
 .
+├── .claude-plugin/
+│   └── plugin.json              # Plugin manifest
 ├── skills/
 │   └── creating-jp-cover-letter/
 │       ├── SKILL.md             # Skill definition
@@ -51,12 +53,15 @@ This plugin guides users through an interactive dialogue to gather the necessary
 
 ## Installation
 
+Install jp-cover-letter-creator from the marketplace.
+
 ```bash
-/plugin marketplace add zv-louis/zv-plugin-marketplace
+# Install the plugin
 /plugin install jp-cover-letter-creator@zv-plugins
 ```
 
-Install the dependent skill:
+Install the dependent skill.
+Install document-skills from Anthropic's official marketplace.
 
 ```bash
 /plugin marketplace add anthropics/skills

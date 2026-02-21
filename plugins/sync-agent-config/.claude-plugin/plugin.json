@@ -19,5 +19,8 @@
     "gemini-cli",
     "antigravity"
   ],
-  "skills": "./skills/"
+  "skills": [
+    "./skills/sync-mcp-config",
+    "./skills/sync-skill-config"
+  ]
 }

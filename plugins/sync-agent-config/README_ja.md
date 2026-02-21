@@ -38,23 +38,12 @@
 
 ### Claude Code へのインストール
 
-GitHubリポジトリから直接Claude Codeにプラグインをインストールできます。
-
-1. Claude Codeを起動します
-
-2. 以下のコマンドを実行してプラグインのマーケットプレイスを追加します.
-
-```bash
-/plugin marketplace add zv-louis/zv-plugin-marketplace
-```
-
-マーケットプレイスを追加したら、マーケットプレイスからプラグインをインストールします.  
+マーケットプレイスからプラグインをインストールします.  
+Claude Code を起動して以下のコマンドを実行します.  
 
 ```bash
 /plugin install sync-agent-config@zv-plugins
 ```
-  
-3. インストールが完了すると、スキルが利用可能になります
 
 ## 使用方法
 

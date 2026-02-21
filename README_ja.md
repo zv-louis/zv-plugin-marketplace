@@ -16,8 +16,11 @@ Claude Code Plugin Marketplace
 ├── .claude-plugin/
 │   └── marketplace.json        # マーケットプレイスカタログ
 ├── plugins/
-│   ├── sync-agent-config/
-│   └── jp-cover-letter-creator/
+│   ├── jp-cover-letter-creator/
+│   ├── madr-manager/
+│   └── sync-agent-config/
+├── LICENSE
+├── README.md
 ├── README_ja.md
 └── zv-marketplace.code-workspace
 ```
@@ -30,10 +33,9 @@ Claude Code にこのマーケットプレイスを追加します.
 Claude Code のコンソールで以下のコマンドを実行します.  
 
 ```bash
-# zv-louis/zv-plugin-marketplace をマーケットプレイスに追加する例
-/plugin marketplace add zv-louis/zv-plugin-marketplace
-# もしくは
 /plugin marketplace add {このリポジトリのURL}
+# もしくは
+/plugin marketplace add zv-louis/zv-plugin-marketplace
 ```
 
 マーケットプレイス追加後、マーケットプレイスで提供されているプラグインを確認できるようになります.  
@@ -44,20 +46,20 @@ Claude Code のコンソールで以下のコマンドを実行します.
 
 ### プラグインのインストール
 
-マーケットプレイスからプラグインを選択してインストールします.  
-
-zv-louis/sync-agent-config プラグインをインストールする例  
+マーケットプレイスからプラグインをインストールします.  
 
 ```bash
-/plugin install sync-agent-config@zv-plugins
+/plugin install {プラグイン名}@zv-plugins
 ```
 
 ## Plugins
 
-- [sync-agent-config](plugins/sync-agent-config)  
-  複数のエージェントツール間でAgentの設定を同期するためのスキルセット.  
-- [jp-cover-letter-creator](plugins/jp-cover-letter-creator)  
-  マークダウンプレビューとWord文書(docx)エクスポート機能を備えた、日本語ビジネス送付状の対話型作成ツール.  
+- [jp-cover-letter-creator](plugins/jp-cover-letter-creator)
+  マークダウンプレビューとWord文書(docx)エクスポート機能を備えた、日本語ビジネス送付状の対話型作成ツール.
+- [madr-manager](plugins/madr-manager)
+  Structured MADR v4.0.0 フォーマットに従って ADR ファイルを対話的に作成・一覧表示・管理するツール.
+- [sync-agent-config](plugins/sync-agent-config)
+  複数のエージェントツール間でAgentの設定を同期するためのスキルセット.
 
 ## ライセンス
 

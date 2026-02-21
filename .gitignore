@@ -1,4 +1,18 @@
 # ignore local settings file
 .claude/settings.local.json
+# ignore local skills
+.claude/skills/*
+
+# ignore Python-generated files
+__pycache__/
+*.py[oc]
+# ignore build artifacts
+build/
+dist/
+
+# ignore temporary directories
+.temp/
+.misc/
+.docs/
 
 

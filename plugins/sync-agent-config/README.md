@@ -38,26 +38,12 @@ It reads the configuration from a source Agent tool and applies it to a target A
 
 ### Installing to Claude Code
 
-You can install the plugin directly from a GitHub repository to Claude Code.
-
-1. Launch Claude Code
-
-2. Run the following command to install the plugin:
-
-Add this marketplace to Claude Code.  
-Run the following command in the Claude Code console.  
-
-```bash
-/plugin marketplace add zv-louis/zv-plugin-marketplace
-```
-
-Then, install the sync-agent-config plugin from the marketplace.  
+Install the plugin from the marketplace.
+Launch Claude Code and run the following command.
 
 ```bash
 /plugin install sync-agent-config@zv-plugins
 ```
-
-3. Once installed, the skills will be available for use
 
 ## Usage
 
