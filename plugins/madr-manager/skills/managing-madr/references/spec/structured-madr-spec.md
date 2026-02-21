@@ -1,27 +1,27 @@
-# Structured MADR 仕様書
+# Structured MADR Specification
 
 > MADR = **M**arkdown **A**rchitectural **D**ecision **R**ecords (v4.0.0)
 
 ---
 
-## 概要
+## Overview
 
-**MADR** は、アーキテクチャ上の設計決定を Markdown で記録するための軽量フォーマット。「decisions that matter（重要な決定）」をもじった名称（発音: [ˈmæɾɚ]）。
+**MADR** is a lightweight format for recording architectural decisions in Markdown. The name is a play on "decisions that matter" (pronunciation: [ˈmæɾɚ]).
 
-**Structured MADR** とは、MADR が提供する複数テンプレート変種の中でも、**全セクション（必須 + オプション）を含むフルテンプレート**（`adr-template.md`）を指す。
+**Structured MADR** refers specifically to the full template (`adr-template.md`), which includes all sections — both required and optional — among the multiple template variants provided by MADR.
 
-### テンプレート変種一覧
+### Template Variants
 
-| ファイル名 | セクション | ガイダンス文 |
+| Filename | Sections | Guidance text |
 |---|---|---|
-| `adr-template.md` | 全セクション（必須 + オプション）| あり |
-| `adr-template-minimal.md` | 必須セクションのみ | あり |
-| `adr-template-bare.md` | 全セクション | なし |
-| `adr-template-bare-minimal.md` | 必須セクションのみ | なし |
+| `adr-template.md` | All sections (required + optional) | Included |
+| `adr-template-minimal.md` | Required sections only | Included |
+| `adr-template-bare.md` | All sections | Not included |
+| `adr-template-bare-minimal.md` | Required sections only | Not included |
 
 ---
 
-## ファイル命名規則・配置
+## File Naming and Location
 
 ```
 docs/decisions/
@@ -30,129 +30,129 @@ docs/decisions/
 └── 0003-...
 ```
 
-- パターン: `NNNN-title-with-dashes.md`（4桁連番）
-- 配置場所: `docs/decisions/`（コードと同じリポジトリに格納）
-- 大規模プロジェクトではサブディレクトリで領域ごとに管理可
+- Pattern: `NNNN-title-with-dashes.md` (4-digit sequential number)
+- Location: `docs/decisions/` (stored in the same repository as the code)
+- For large projects, subdirectories can be used to organize by domain
 
 ---
 
-## ステータス値とライフサイクル
+## Status Values and Lifecycle
 
 ```
-proposed --> accepted --> deprecated --> (歴史的記録として保持)
-         --> rejected --> (歴史的記録として保持)
-accepted --> superseded by ADR-XXXX --> (歴史的記録として保持)
+proposed --> accepted --> deprecated --> (retained as historical record)
+         --> rejected --> (retained as historical record)
+accepted --> superseded by ADR-XXXX --> (retained as historical record)
 ```
 
-| ステータス | 意味 |
+| Status | Meaning |
 |---|---|
-| `proposed` | 議論中、未確定 |
-| `accepted` | 合意済み、有効 |
-| `rejected` | 評価の結果、不採用 |
-| `deprecated` | かつて有効だったが、現在は非推奨 |
-| `superseded by ADR-XXXX` | 別の ADR に置き換えられた |
+| `proposed` | Under discussion, not yet decided |
+| `accepted` | Agreed and in effect |
+| `rejected` | Evaluated and not adopted |
+| `deprecated` | Was valid but is no longer recommended |
+| `superseded by ADR-XXXX` | Replaced by another ADR |
 
-> **注意:** ADR は削除しない。却下・廃止されたものも歴史的記録として保持する。
+> **Note:** Never delete ADRs. Even rejected or deprecated ones must be retained as historical records.
 
 ---
 
-## テンプレート全体構造
+## Full Template Structure
 
 ```markdown
 ---
 status: "{proposed | rejected | accepted | deprecated | superseded by ADR-XXXX}"
 date: {YYYY-MM-DD}
-decision-makers: {意思決定に関与した全員}
-consulted: {意見を求めた人（双方向コミュニケーション）}
-informed: {進捗を共有する人（一方向コミュニケーション）}
+decision-makers: {everyone involved in the decision}
+consulted: {those consulted (two-way communication)}
+informed: {those kept informed (one-way communication)}
 ---
 
-# {短いタイトル：問題と解決策を表す}
+# {Short title: describes both the problem and the solution}
 
 ## Context and Problem Statement
 
-{問題の背景と、なぜこの決定が必要なのかを記述}
+{Describe the background and why this decision is necessary}
 
 ## Decision Drivers
 
-* {決定要因 1}
-* {決定要因 2}
+* {Driver 1}
+* {Driver 2}
 
 ## Considered Options
 
-* {選択肢 1}
-* {選択肢 2}
-* {選択肢 3}
+* {Option 1}
+* {Option 2}
+* {Option 3}
 
 ## Decision Outcome
 
-Chosen option: "{選択した選択肢}", because {理由}.
+Chosen option: "{chosen option}", because {reason}.
 
 ### Consequences
 
-* Good, because {良い影響}
-* Bad, because {悪い影響}
+* Good, because {positive impact}
+* Bad, because {negative impact}
 
 ### Confirmation
 
-{実装・準拠の確認方法}
+{How to verify that the decision is implemented correctly}
 
 ## Pros and Cons of the Options
 
-### {選択肢 1}
+### {Option 1}
 
-{説明・例・参照リンク（任意）}
+{Description, example, or reference link (optional)}
 
-* Good, because {引数 A}
-* Neutral, because {引数 B}
-* Bad, because {引数 C}
+* Good, because {argument A}
+* Neutral, because {argument B}
+* Bad, because {argument C}
 
-### {選択肢 2}
+### {Option 2}
 
-* Good, because {引数 A}
-* Bad, because {引数 B}
+* Good, because {argument A}
+* Bad, because {argument B}
 
 ## More Information
 
-{補足情報・関連 ADR リンク・外部リソース・見直し時期など}
+{Supplemental information, related ADR links, external resources, review schedule, etc.}
 ```
 
 ---
 
-## 各セクション詳細
+## Section Details
 
-### YAML Front Matter（オプション）
+### YAML Front Matter (optional)
 
 ```yaml
 ---
 status: "proposed"
 date: 2025-01-15
 decision-makers: Alice, Bob
-consulted: Charlie (アーキテクト)
-informed: チーム全員
+consulted: Charlie (architect)
+informed: entire team
 ---
 ```
 
-- **目的:** 機械可読なメタデータ。RACI モデルに対応
+- **Purpose:** Machine-readable metadata. Maps to the RACI model:
   - `decision-makers` → Responsible / Accountable
-  - `consulted` → Consulted（双方向）
-  - `informed` → Informed（一方向）
-- **省略可:** 不要なら Front Matter ブロック全体を削除
+  - `consulted` → Consulted (two-way)
+  - `informed` → Informed (one-way)
+- **Omittable:** If not needed, remove the entire front matter block
 
 ---
 
-### H1: タイトル（必須）
+### H1: Title (required)
 
 ```markdown
 # Use PostgreSQL for relational data storage
 ```
 
-- 問題と解決策の両方を表す簡潔なフレーズ
-- 推奨パターン: `Use [Solution] for [Problem]` / `Do not use [X] for [Y]`
+- A concise phrase that represents both the problem and the solution
+- Recommended pattern: `Use [Solution] for [Problem]` / `Do not use [X] for [Y]`
 
 ---
 
-### H2: Context and Problem Statement（必須）
+### H2: Context and Problem Statement (required)
 
 ```markdown
 ## Context and Problem Statement
@@ -161,29 +161,29 @@ Which database should we use for storing relational data?
 We need a solution that supports ACID transactions and complex queries.
 ```
 
-- 意思決定が必要になった背景と問題を記述
-- 疑問文形式で書くと議論を促しやすい
-- イシュートラッカーへのリンクを含めてもよい
+- Describe the background and why this decision is needed
+- Writing in question form encourages discussion
+- May include links to an issue tracker
 
 ---
 
-### H2: Decision Drivers（オプション）
+### H2: Decision Drivers (optional)
 
 ```markdown
 ## Decision Drivers
 
-* ACID トランザクションが必要
-* チームが SQL に精通している
-* オープンソースであること
-* 水平スケーリングは当面不要
+* ACID transactions required
+* Team is familiar with SQL
+* Must be open source
+* Horizontal scaling not needed in the near term
 ```
 
-- 意思決定を左右する力・制約・品質要件を列挙
-- 後続の Pros/Cons 評価の基準となる
+- List the forces, constraints, and quality requirements that drive the decision
+- Serves as the evaluation criteria for the Pros/Cons section
 
 ---
 
-### H2: Considered Options（必須）
+### H2: Considered Options (required)
 
 ```markdown
 ## Considered Options
@@ -193,13 +193,13 @@ We need a solution that supports ACID transactions and complex queries.
 * MongoDB
 ```
 
-- 実際に検討した全選択肢を列挙
-- 採用した選択肢を最初に書く慣習を推奨（プロジェクト全体で統一）
-- 抽象レベルを揃える（技術選択とデザインパターンを混在させない）
+- List all options actually evaluated
+- Recommended convention: put the chosen option first (apply consistently across the project)
+- Keep options at the same level of abstraction (do not mix technology choices with design patterns)
 
 ---
 
-### H2: Decision Outcome（必須）
+### H2: Decision Outcome (required)
 
 ```markdown
 ## Decision Outcome
@@ -207,47 +207,47 @@ We need a solution that supports ACID transactions and complex queries.
 Chosen option: "PostgreSQL", because it satisfies our ACID requirements and the team already has deep expertise with it (see "Pros and Cons" below).
 ```
 
-- 決定内容を明確に宣言
-- Decision Drivers への参照、または Pros/Cons への参照で理由を示す
-- **意図的に Pros/Cons より前に配置**：読者がスクロールせずに決定を把握できる
+- Clearly state the decision
+- Provide justification by referencing Decision Drivers or Pros/Cons
+- **Intentionally placed before Pros/Cons** so readers can grasp the decision without scrolling
 
 ---
 
-### H3: Consequences（オプション、Decision Outcome のサブセクション）
+### H3: Consequences (optional, subsection of Decision Outcome)
 
 ```markdown
 ### Consequences
 
-* Good, because 複雑なクエリが書きやすい
-* Good, because チームの学習コストが低い
-* Bad, because 水平スケーリングが困難
-* Neutral, because マネージドサービス（RDS 等）が必要
+* Good, because complex queries are easy to write
+* Good, because low learning cost for the team
+* Bad, because horizontal scaling is difficult
+* Neutral, because a managed service (e.g., RDS) is required
 ```
 
-- 採用した選択肢がもたらす影響を記録
-- `Good, because` / `Bad, because` / `Neutral, because` の形式を統一
-- **良い影響だけでなく悪い影響も必ず記録する**
+- Record the impacts of the chosen option
+- Use the consistent format: `Good, because` / `Bad, because` / `Neutral, because`
+- **Always record both positive and negative impacts**
 
 ---
 
-### H3: Confirmation（オプション、Decision Outcome のサブセクション）
+### H3: Confirmation (optional, subsection of Decision Outcome)
 
 ```markdown
 ### Confirmation
 
-* `package.json` の dependencies に `pg` のみが含まれていることを確認
-* コードレビューで ORM が PostgreSQL 専用機能のみ使用しているか確認
-* ArchUnit / 静的解析ツールで依存関係を自動チェック
+* Verify that `package.json` dependencies include only `pg`
+* Confirm via code review that the ORM uses only PostgreSQL-specific features
+* Automate dependency checks with ArchUnit or static analysis tools
 ```
 
-- 決定が実装で遵守されているかを確認する方法
-- v4.0.0 で「Validation」から「Confirmation」に改名
-- 自動化（フィットネス関数、CI チェック）が強く推奨される
-- オプション扱いだが、**多くの ADR で使用されるため実質的に推奨**
+- Describes how to verify that the decision is correctly implemented
+- Renamed from "Validation" to "Confirmation" in v4.0.0
+- Automation (fitness functions, CI checks) is strongly recommended
+- Optional by spec, but **effectively recommended as it appears in most ADRs**
 
 ---
 
-### H2: Pros and Cons of the Options（オプション）
+### H2: Pros and Cons of the Options (optional)
 
 ```markdown
 ## Pros and Cons of the Options
@@ -256,123 +256,123 @@ Chosen option: "PostgreSQL", because it satisfies our ACID requirements and the 
 
 https://www.postgresql.org/
 
-* Good, because ACID 完全準拠
-* Good, because 豊富な拡張機能
-* Good, because チームの知識が豊富
-* Neutral, because 垂直スケーリングのみ
-* Bad, because 水平スケーリングが困難
+* Good, because fully ACID-compliant
+* Good, because rich ecosystem of extensions
+* Good, because team has deep expertise
+* Neutral, because vertical scaling only
+* Bad, because horizontal scaling is difficult
 
 ### MySQL
 
-* Good, because 広く普及している
-* Good, because 水平スケーリングオプションあり
-* Bad, because ACID 準拠が PostgreSQL ほど厳密でない
-* Bad, because チームの経験が少ない
+* Good, because widely adopted
+* Good, because horizontal scaling options available
+* Bad, because ACID compliance is less strict than PostgreSQL
+* Bad, because team has less experience
 
 ### MongoDB
 
-* Good, because スキーマレスで柔軟
-* Bad, because ACID トランザクションが複雑
-* Bad, because リレーショナルデータに不向き
+* Good, because schema-less and flexible
+* Bad, because ACID transactions are complex
+* Bad, because unsuitable for relational data
 ```
 
-- **Structured MADR の核心部分**：比較検討プロセスを完全に可視化
-- 各選択肢に H3 サブセクションを作成（Considered Options の順番と一致させる）
-- 各引数は `Good,` / `Neutral,` / `Bad,` + `because` で記述
-- 選択肢ごとにオプションで説明文・例・URL を先頭に追加できる
+- **The core of Structured MADR**: makes the comparison process fully transparent
+- Create an H3 subsection for each option (matching the order in Considered Options)
+- Each argument uses `Good,` / `Neutral,` / `Bad,` + `because`
+- An optional description, example, or URL can be added at the top of each option
 
 ---
 
-### H2: More Information（オプション）
+### H2: More Information (optional)
 
 ```markdown
 ## More Information
 
-* [PostgreSQL vs MySQL 比較記事](https://example.com/comparison)
-* ADR-0005 に関連（データモデル設計）
-* 6 ヶ月後（2025 年 7 月）に水平スケーリング要件を再評価する
-* チーム全員が Slack #arch-decisions で合意済み
+* [PostgreSQL vs MySQL comparison article](https://example.com/comparison)
+* Related to ADR-0005 (data model design)
+* Re-evaluate horizontal scaling requirements in 6 months (July 2025)
+* Team agreed via Slack #arch-decisions
 ```
 
-- 補足情報・証拠・外部リンクを格納
-- 関連 ADR へのクロスリファレンス
-- 決定の見直し時期・条件
-- チームの合意プロセスの記録
+- Store supplemental information, evidence, and external links
+- Cross-reference related ADRs
+- Record review schedule or conditions
+- Document the team's consensus process
 
 ---
 
-## 必須 vs オプション セクション早見表
+## Required vs Optional Sections — Quick Reference
 
-| セクション | 要否 | 備考 |
+| Section | Required | Notes |
 |---|---|---|
-| YAML Front Matter | オプション | 不要なら省略可 |
-| タイトル（H1） | **必須** | |
-| Context and Problem Statement | **必須** | |
-| Decision Drivers | オプション | 文脈から明らかなら省略可 |
-| Considered Options | **必須** | |
-| Decision Outcome | **必須** | |
-| └ Consequences | オプション | 強く推奨 |
-| └ Confirmation | オプション | 強く推奨（多数の ADR で使用） |
-| Pros and Cons of the Options | オプション | Structured MADR の核心 |
-| More Information | オプション | 補足・クロスリファレンス用 |
+| YAML Front Matter | Optional | Omit if not needed |
+| Title (H1) | **Required** | |
+| Context and Problem Statement | **Required** | |
+| Decision Drivers | Optional | Omit if clear from context |
+| Considered Options | **Required** | |
+| Decision Outcome | **Required** | |
+| └ Consequences | Optional | Strongly recommended |
+| └ Confirmation | Optional | Strongly recommended (appears in most ADRs) |
+| Pros and Cons of the Options | Optional | Core of Structured MADR |
+| More Information | Optional | For supplemental info and cross-references |
 
 ---
 
-## ベストプラクティス
+## Best Practices
 
-### 記述品質
+### Writing Quality
 
-- 問題を疑問文で書く（「どのフレームワークを使うべきか？」）
-- 選択肢の抽象レベルを揃える
-- 良い影響・悪い影響の両方を記録する
-- `Neutral, because` を活用して完全な分析を示す
-- 採用した選択肢を Considered Options の先頭に書く（プロジェクト内で統一）
+- Write the problem as a question ("Which framework should we use?")
+- Keep options at the same level of abstraction
+- Record both positive and negative impacts
+- Use `Neutral, because` to show complete analysis
+- Put the chosen option first in Considered Options (apply consistently within the project)
 
-### プロセス
+### Process
 
-- ADR は個人作業でなくチームで共同作成
-- コードレビューと同様に ADR もレビューする
-- プロジェクト開始時にテンプレート変種を統一する（後から変更はコスト大）
-- **ADR は絶対に削除しない**（却下・廃止済みも歴史的記録として保持）
-- 上書き時は `superseded by ADR-XXXX` で明示的にリンクする
+- ADRs should be co-authored by the team, not written by an individual
+- Review ADRs the same way you review code
+- Agree on a template variant at project start (changing later is costly)
+- **Never delete ADRs** (even rejected or deprecated ones must be kept as historical records)
+- When superseding, explicitly link with `superseded by ADR-XXXX`
 
-### ツール
+### Tooling
 
 ```bash
-# npm 経由でインストール
+# Install via npm
 npm install madr
 mkdir -p docs/decisions
 cp node_modules/madr/template/* docs/decisions/
 ```
 
-- `markdownlint` + MADR 提供の設定でフォーマット統一
-- ArchUnit 等の静的解析ツールで Confirmation を自動化
+- Use `markdownlint` with MADR-provided config to enforce consistent formatting
+- Automate Confirmation with static analysis tools such as ArchUnit
 
 ---
 
-## 完全な記述例
+## Complete Example
 
 ```markdown
 ---
 status: "accepted"
 date: 2025-01-15
 decision-makers: Alice, Bob
-consulted: Charlie (シニアアーキテクト)
-informed: 開発チーム全員
+consulted: Charlie (senior architect)
+informed: entire development team
 ---
 
 # Use Plain JUnit5 for Advanced Test Assertions
 
 ## Context and Problem Statement
 
-テスト内で読みやすいアサーションをどう書くべきか？
-特に複雑なテストケースで可読性を維持するにはどのライブラリが最適か？
+How should we write readable assertions in tests?
+Which library is best for maintaining readability in complex test cases?
 
 ## Decision Drivers
 
-* コードベースに不慣れな開発者でも読めること
-* 外部依存を最小限にすること
-* 「一般常識」として知られていること（オンボーディングコストの削減）
+* Readable even for developers unfamiliar with the codebase
+* Minimize external dependencies
+* Widely known as "common knowledge" (reduces onboarding cost)
 
 ## Considered Options
 
@@ -386,15 +386,15 @@ Chosen option: "Plain JUnit5", because comes out best (see "Pros and Cons of the
 
 ### Consequences
 
-* Good, because テストが読みやすくなる
-* Good, because テストの記述が簡単
-* Bad, because 複雑なアサーションは読みにくくなる場合がある
+* Good, because tests are easy to read
+* Good, because tests are easy to write
+* Bad, because complex assertions can become harder to read
 
 ### Confirmation
 
-* プロジェクトの依存関係に JUnit5 のみが含まれることを確認
-* スプリントレビューで JUnit5 の使用感についてフィードバック収集
-* 今後の決定再評価時期: 次回メジャーバージョンアップ時
+* Verify that project dependencies include only JUnit5
+* Collect feedback on JUnit5 usability during sprint reviews
+* Next re-evaluation: at the next major version upgrade
 
 ## Pros and Cons of the Options
 
@@ -402,38 +402,38 @@ Chosen option: "Plain JUnit5", because comes out best (see "Pros and Cons of the
 
 https://junit.org/junit5/docs/current/user-guide/
 
-* Good, because Java エンジニアの「常識」として広く知られている
-* Bad, because 複雑なアサーションは読みにくくなりやすい
-* Bad, because Fluent API がない
+* Good, because widely known as "common knowledge" among Java engineers
+* Bad, because complex assertions can become hard to read
+* Bad, because no Fluent API
 
 ### Hamcrest
 
 https://github.com/hamcrest/JavaHamcrest
 
-* Good, because 高度なマッチャー（`contains` 等）が使える
-* Bad, because 完全な Fluent API ではない
-* Bad, because 学習コストが高い
+* Good, because advanced matchers available (e.g., `contains`)
+* Bad, because not a fully Fluent API
+* Bad, because high learning curve
 
 ### AssertJ
 
 https://joel-costigliola.github.io/assertj/
 
-* Good, because Fluent API でチェーン記述できる
-* Good, because 部分文字列テストなど柔軟な検証が可能
-* Bad, because 一般的でないため、新規参加者の学習コストが高い
-* Bad, because テストケースの書き方がバラつきやすい
+* Good, because Fluent API enables chained writing
+* Good, because flexible verification such as substring matching
+* Bad, because uncommon, so high learning cost for newcomers
+* Bad, because test case style tends to vary
 
 ## More Information
 
-* [HamcrestとAssertJの比較（ドイツ語）](https://www.sigs-datacom.de/uploads/tx_dmjournals/philipp_JS_06_15_gRfN.pdf)
-* ADR-0004（テスト戦略）と関連
+* [Hamcrest vs AssertJ comparison (German)](https://www.sigs-datacom.de/uploads/tx_dmjournals/philipp_JS_06_15_gRfN.pdf)
+* Related to ADR-0004 (test strategy)
 ```
 
 ---
 
-## 参考リソース
+## Reference Resources
 
-- [MADR 公式サイト](https://adr.github.io/madr/)
-- [GitHub リポジトリ (adr/madr)](https://github.com/adr/madr)
-- [MADR テンプレート解説記事 (ozimmer.ch)](https://ozimmer.ch/practices/2022/11/22/MADRTemplatePrimer.html)
-- [論文: Markdown Architectural Decision Records (CEUR-WS)](https://ceur-ws.org/Vol-2072/paper9.pdf)
+- [MADR official site](https://adr.github.io/madr/)
+- [GitHub repository (adr/madr)](https://github.com/adr/madr)
+- [MADR template primer (ozimmer.ch)](https://ozimmer.ch/practices/2022/11/22/MADRTemplatePrimer.html)
+- [Paper: Markdown Architectural Decision Records (CEUR-WS)](https://ceur-ws.org/Vol-2072/paper9.pdf)

@@ -1,6 +1,6 @@
 ---
 name: managing-madr
-description: MADR（Markdown Architectural Decision Records）を作成・一覧・管理するスキル。Structured MADR v4.0.0 フォーマットに従い、ADR ファイルの新規作成、既存 ADR の確認・ステータス更新、一覧表示を行う。「ADR を書いて」「アーキテクチャ決定を記録して」「MADR を追加して」などの指示に反応する。
+description: Skill for creating, listing, and managing MADR (Markdown Architectural Decision Records) following the Structured MADR v4.0.0 format. Handles creating new ADR files, reviewing and updating the status of existing ADRs, and listing all ADRs. Triggered by instructions such as "write an ADR", "record an architectural decision", or "add a MADR".
 allowed-tools: Read, Write, Edit, Glob, Bash(ls *), Bash(mkdir -p *)
 ---
 
@@ -8,11 +8,12 @@ allowed-tools: Read, Write, Edit, Glob, Bash(ls *), Bash(mkdir -p *)
 
 ## File Reading Policy
 
-**Read reference files only when they are actually needed — never preload all references at startup.**
+**Never read the same file twice. Before loading any reference file, check which files have already been read in this conversation and skip if already loaded.**
 
-- Load a reference file immediately before executing the corresponding operation.
-- Do not read reference files speculatively or "just in case."
-- `references/spec/structured-madr-spec.md` is the authoritative MADR spec; read it only when you need to understand format details (e.g., during ADR creation or status update).
+| Category | Pre-loading | Rule |
+|---|---|---|
+| `references/workflow/` | Prohibited | Load immediately before executing the corresponding operation |
+| `references/spec/` | Allowed | Load when needed (pre-loading is acceptable) |
 
 ## Operations
 
