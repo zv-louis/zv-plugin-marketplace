@@ -90,8 +90,8 @@ Chosen option: "{chosen option}", because {reason}.
 
 ### Consequences
 
-* Good:{positive impact}
-* Bad:{negative impact}
+* Good, because {positive impact}
+* Bad, because {negative impact}
 
 ### Confirmation
 
@@ -103,14 +103,14 @@ Chosen option: "{chosen option}", because {reason}.
 
 {Description, example, or reference link (optional)}
 
-* Good:{argument A}
-* Neutral:{argument B}
-* Bad:{argument C}
+* Good, because {argument A}
+* Neutral, because {argument B}
+* Bad, because {argument C}
 
 ### {Option 2}
 
-* Good:{argument A}
-* Bad:{argument B}
+* Good, because {argument A}
+* Bad, because {argument B}
 
 ## More Information
 
@@ -218,14 +218,14 @@ Chosen option: "PostgreSQL", because it satisfies our ACID requirements and the 
 ```markdown
 ### Consequences
 
-* Good:complex queries are easy to write
-* Good:low learning cost for the team
-* Bad:horizontal scaling is difficult
-* Neutral:a managed service (e.g., RDS) is required
+* Good, because complex queries are easy to write
+* Good, because low learning cost for the team
+* Bad, because horizontal scaling is difficult
+* Neutral, because a managed service (e.g., RDS) is required
 ```
 
 - Record the impacts of the chosen option
-- Use the consistent format: `Good:` / `Bad:` / `Neutral:`
+- Use the consistent format: `Good, because` / `Bad, because` / `Neutral, because`
 - **Always record both positive and negative impacts**
 
 ---
@@ -256,29 +256,29 @@ Chosen option: "PostgreSQL", because it satisfies our ACID requirements and the 
 
 https://www.postgresql.org/
 
-* Good:fully ACID-compliant
-* Good:rich ecosystem of extensions
-* Good:team has deep expertise
-* Neutral:vertical scaling only
-* Bad:horizontal scaling is difficult
+* Good, because fully ACID-compliant
+* Good, because rich ecosystem of extensions
+* Good, because team has deep expertise
+* Neutral, because vertical scaling only
+* Bad, because horizontal scaling is difficult
 
 ### MySQL
 
-* Good:widely adopted
-* Good:horizontal scaling options available
-* Bad:ACID compliance is less strict than PostgreSQL
-* Bad:team has less experience
+* Good, because widely adopted
+* Good, because horizontal scaling options available
+* Bad, because ACID compliance is less strict than PostgreSQL
+* Bad, because team has less experience
 
 ### MongoDB
 
-* Good:schema-less and flexible
-* Bad:ACID transactions are complex
-* Bad:unsuitable for relational data
+* Good, because schema-less and flexible
+* Bad, because ACID transactions are complex
+* Bad, because unsuitable for relational data
 ```
 
 - **The core of Structured MADR**: makes the comparison process fully transparent
 - Create an H3 subsection for each option (matching the order in Considered Options)
-- Each argument uses `Good:` / `Neutral:` / `Bad:`
+- Each argument uses `Good, because` / `Neutral, because` / `Bad, because`
 - An optional description, example, or URL can be added at the top of each option
 
 ---
@@ -386,9 +386,9 @@ Chosen option: "Plain JUnit5", because comes out best (see "Pros and Cons of the
 
 ### Consequences
 
-* Good:tests are easy to read
-* Good:tests are easy to write
-* Bad:complex assertions can become harder to read
+* Good, because tests are easy to read
+* Good, because tests are easy to write
+* Bad, because complex assertions can become harder to read
 
 ### Confirmation
 
@@ -402,26 +402,26 @@ Chosen option: "Plain JUnit5", because comes out best (see "Pros and Cons of the
 
 https://junit.org/junit5/docs/current/user-guide/
 
-* Good:widely known as "common knowledge" among Java engineers
-* Bad:complex assertions can become hard to read
-* Bad:no Fluent API
+* Good, because widely known as "common knowledge" among Java engineers
+* Bad, because complex assertions can become hard to read
+* Bad, because no Fluent API
 
 ### Hamcrest
 
 https://github.com/hamcrest/JavaHamcrest
 
-* Good:advanced matchers available (e.g., `contains`)
-* Bad:not a fully Fluent API
-* Bad:high learning curve
+* Good, because advanced matchers available (e.g., `contains`)
+* Bad, because not a fully Fluent API
+* Bad, because high learning curve
 
 ### AssertJ
 
 https://joel-costigliola.github.io/assertj/
 
-* Good:Fluent API enables chained writing
-* Good:flexible verification such as substring matching
-* Bad:uncommon, so high learning cost for newcomers
-* Bad:test case style tends to vary
+* Good, because Fluent API enables chained writing
+* Good, because flexible verification such as substring matching
+* Bad, because uncommon, so high learning cost for newcomers
+* Bad, because test case style tends to vary
 
 ## More Information
 

@@ -34,9 +34,9 @@ Chosen option: "{chosen option}", because {reason referencing Decision Drivers o
 
 ### Consequences
 
-* Good: {positive impact}
-* Bad: {negative impact}
-* Neutral: {neutral impact}
+* Good, because {positive impact}
+* Bad, because {negative impact}
+* Neutral, because {neutral impact}
 
 ### Confirmation
 
@@ -48,14 +48,14 @@ Chosen option: "{chosen option}", because {reason referencing Decision Drivers o
 
 {Optional: description, example, or URL}
 
-* Good: {argument A}
-* Neutral: {argument B}
-* Bad: {argument C}
+* Good, because {argument A}
+* Neutral, because {argument B}
+* Bad, because {argument C}
 
 ### {Option 2}
 
-* Good: {argument A}
-* Bad: {argument B}
+* Good, because {argument A}
+* Bad, because {argument B}
 
 ## More Information
 
