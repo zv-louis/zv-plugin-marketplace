@@ -41,17 +41,24 @@ status: "accepted"
 ```
 
 If the new status is `superseded by ADR-XXXX`:
-- Set `status: "superseded by ADR-XXXX"` (replace XXXX with the actual number).
-- Append a note in the `More Information` section referencing the superseding ADR. If the section does not exist, add it:
+
+- Set the status using a markdown link to the superseding ADR:
 
   ```markdown
-  ## More Information
-
-  * Superseded by [ADR-XXXX](NNNN-title-of-superseding-adr.md)
+  superseded by [ADR-XXXX](XXXX-filename.md)
   ```
 
-## Step 5: Confirm to the user
+- Add a `More Information` section to the old ADR containing `Superseded by [ADR-XXXX](XXXX-filename.md)`. If the section already exists, append the entry.
+- Locate the superseding ADR (XXXX) and add a `More Information` section containing `Supersedes [ADR-old](old-filename.md)`. If the section already exists, append the entry.
 
-Show the updated file path and the new status value.
+## Step 5: Update index.md
 
-**Important:** Never delete or truncate the ADR. Status updates are the only change — all other content must be preserved.
+Read `index.md` in the ADR storage directory and update the `Status` cell of the target ADR to reflect the new status.
+
+If `index.md` does not exist, skip this step.
+
+## Step 6: Confirm to the user
+
+Show the updated file path, the new status value, and any other files that were modified.
+
+**Important:** Never delete or truncate any ADR. Status updates are the only change — all other content must be preserved.

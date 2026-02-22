@@ -1,5 +1,9 @@
 # Create a New ADR — Workflow
 
+## Premise: One ADR per Decision
+
+Each ADR records exactly one decision. If a single conversation or meeting note contains multiple independent decisions, split them into separate ADRs — one per decision. Creation order does not matter; relationships between decisions are expressed through mutual links.
+
 ## Step 1: Read the MADR spec
 
 Read `references/spec/structured-madr-spec.md` to understand the full format before proceeding.
@@ -14,6 +18,20 @@ Read `references/spec/structured-madr-spec.md` to understand the full format bef
 - List existing files matching `NNNN-*.md` in the target directory.
 - Use the next available 4-digit number (e.g., `0001`, `0002`, …).
 - If no files exist, start from `0001`.
+
+## Step 3.5: Read the index file
+
+- Check if `index.md` exists in the ADR storage directory.
+- If it exists, read it to understand existing decisions and their statuses.
+- If it does not exist, skip this step (it will be created in Step 8).
+
+The index format is:
+
+```markdown
+| Number | Title | Status | Summary |
+|--------|-------|--------|---------|
+| 0001 | Use PostgreSQL for relational data | accepted | Chose PostgreSQL for relational storage, prioritizing transactional integrity over scalability |
+```
 
 ## Step 4: Gather required information
 
@@ -58,12 +76,44 @@ Pattern: `NNNN-title-with-dashes.md`
 mkdir -p docs/decisions
 ```
 
+## Step 6.5: Identify supersede relationships
+
+Using the index read in Step 3.5, determine if any existing ADR is superseded by the new one.
+
+**Process:**
+
+1. Compare the new ADR's decision content against the Summary of each `accepted` ADR in the index.
+2. If a clear supersede candidate is found (one match, high confidence): proceed with automatic update in Step 8.
+3. If multiple candidates or low confidence: ask the user to confirm which ADR(s) are superseded before proceeding.
+4. If no candidates or index does not exist: skip supersede processing.
+
 ## Step 7: Write the ADR file
 
 Read `references/spec/adr-template.md` to get the template and template rules, then write the file.
 
-Omit optional sections if no content was provided — never leave placeholder text.
+- Omit optional sections if no content was provided — never leave placeholder text.
+- If a superseded ADR was identified in Step 6.5, add a `More Information` section containing: `Supersedes [ADR-XXXX](XXXX-filename.md)`
 
-## Step 8: Confirm to the user
+## Step 8: Update related files
 
-Show the created file path and a brief content summary.
+### 8a. Update the superseded ADR (if applicable)
+
+If a supersede relationship was identified in Step 6.5, apply the following changes to the old ADR:
+
+1. Update the `Status` field:
+
+   ```markdown
+   superseded by [ADR-XXXX](XXXX-filename.md)
+   ```
+
+2. Add a `More Information` section containing `Superseded by [ADR-XXXX](XXXX-filename.md)`. If the section already exists, append the entry.
+
+### 8b. Update index.md
+
+- If `index.md` does not exist, create it with the header row.
+- Add a new row for the newly created ADR. Generate the `Summary` as a concise one-sentence description of the decision made.
+- If an existing ADR was superseded, update its `Status` cell accordingly.
+
+### 8c. Confirm to the user
+
+Show the created file path, a brief content summary, and any files that were updated (superseded ADR, index.md).

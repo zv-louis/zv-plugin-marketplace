@@ -13,4 +13,6 @@ dist/
 # ignore temporary directories
 .temp/
 .misc/
+.docs/
+
 
