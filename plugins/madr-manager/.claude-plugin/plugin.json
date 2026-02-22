@@ -8,6 +8,6 @@
   },
   "license": "MIT",
   "skills": [
-    "skills/managing-madr"
+    "./skills/managing-madr"
   ]
 }

@@ -20,7 +20,7 @@
     "antigravity"
   ],
   "skills": [
-    "skills/sync-mcp-config",
-    "skills/sync-skill-config"
+    "./skills/sync-mcp-config",
+    "./skills/sync-skill-config"
   ]
 }
