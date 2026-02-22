@@ -22,6 +22,12 @@
       "source": "./plugins/jp-cover-letter-creator",
       "description": "Interactive Japanese business cover letter creator with markdown preview and Word document (docx) export.",
       "category": "productivity"
+    },
+    {
+      "name": "madr-manager",
+      "source": "./plugins/madr-manager",
+      "description": "Interactive MADR (Markdown Architectural Decision Records) manager. Helps create, list, and manage ADR files following the Structured MADR v4.0.0 format.",
+      "category": "productivity"
     }
   ]
 }
