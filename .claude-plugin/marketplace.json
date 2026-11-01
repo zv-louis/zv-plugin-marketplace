@@ -1,0 +1,36 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "zv-plugins",
+  "version": "1.0.1",
+  "description": "Claude Code Plugin Marketplace - A collection of useful plugins and skills",
+  "owner": {
+    "name": "kanok-one",
+    "email": "zervoid77@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "madr-manager",
+      "description": "Interactive MADR (Markdown Architectural Decision Records) manager. Helps create, list, and manage ADR files following the Structured MADR v4.0.0 format.",
+      "source": {
+        "source": "github",
+        "repo": "zv-louis/madr-manager"
+      }
+    },
+    {
+      "name": "mktotp-mcp",
+      "description": "Interactive TOTP (Time-based One-Time Password) manager. Helps create, list, and manage TOTP secrets and generate one-time passwords.",
+      "source": {
+        "source": "github",
+        "repo": "zv-louis/mktotp"
+      }
+    },
+    {
+      "name": "updsts-mcp",
+      "description": "Get and update AWS STS credential using existing AWS profile.",
+      "source": {
+        "source": "github",
+        "repo": "zv-louis/updsts"
+      }
+    }
+  ]
+}
