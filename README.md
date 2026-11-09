@@ -57,6 +57,8 @@ Each plugin is referenced from its own GitHub repository.
   Interactive TOTP (Time-based One-Time Password) manager. Helps create, list, and manage TOTP secrets and generate one-time passwords.
 - [updsts-mcp](https://github.com/zv-louis/updsts)
   Get and update AWS STS credential using existing AWS profile.
+- [exam-exp-gen](https://github.com/zv-louis/exam-exp-gen)
+  Reads exam questions (PDF, images, or text) and generates explanations as markdown, ODT, or DOCX.
 
 ## License
 

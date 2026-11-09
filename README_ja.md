@@ -57,6 +57,8 @@ Claude Code のコンソールで以下のコマンドを実行して、この�
   TOTP(時間ベースのワンタイムパスワード)のシークレットを対話的に作成・一覧表示・管理し、ワンタイムパスワードを生成するツール.
 - [updsts-mcp](https://github.com/zv-louis/updsts)
   既存の AWS プロファイルを使って AWS STS 認証情報を取得・更新するツール.
+- [exam-exp-gen](https://github.com/zv-louis/exam-exp-gen)
+  試験問題(PDF・画像・テキスト)を読み込み、解説を markdown / ODT / DOCX で生成するツール.
 
 ## ライセンス
 
